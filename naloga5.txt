@@ -1,0 +1,41 @@
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        //Napiši metodo, ki sprejme neko besedilo (stavek) in preveri, če je v njem določena beseda (tudi ta beseda je argument metode). Metoda vrne rezultat v obliki true/false.
+        //Namig: Pri reševanju uporabi metodo Split(), da izluščiš posamezne besede iz stavka.
+        static void Main(string[] args)
+        {
+            Console.Write("Vnesi stavek: ");
+            string stavek = Console.ReadLine();
+            Console.Write("Vnesi besedo ki jo iščeš: ");
+            string iskanaBeseda = Console.ReadLine();
+            bool seNahaja = IskanjeStavka(iskanaBeseda, stavek);
+
+            if(seNahaja == true)
+            {
+                Console.WriteLine("iskan stavek se nahaja v iskanem stavku.");
+            }
+            else if(seNahaja == false)
+            {
+                Console.WriteLine("iskan stavek ne se nahaja v iskanem stavku.");
+            }
+            Console.ReadLine();
+        }
+        static bool IskanjeStavka(string iskanaBeseda, string stavek)
+        {
+            string[] stavekLočen = stavek.Split(' ');
+            bool seNahaja = false;
+            for(int i = 0; i < stavekLočen.Length; i++)
+            {
+                if(stavekLočen[i] == iskanaBeseda)
+                {
+                    seNahaja = true;
+                }
+            }
+            return seNahaja;
+        }
+    }
+}

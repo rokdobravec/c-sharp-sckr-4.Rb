@@ -1,0 +1,30 @@
+static void Main(string[] args)
+        {
+            string[] stavki = new string[5];
+            for (int i = 0; i < stavki.Length; i++)
+            {
+                stavki[i]= Console.ReadLine();
+            }
+            štetje(stavki);
+            
+        }
+static void štetje(string[] stavki)
+        {
+            int najd = 0;
+            int index = 0;
+            for (int i = 0; i < stavki.Length; i++)
+            {
+                if (stavki[i].Length > najd)
+                {
+                    najd = stavki[i].Length;
+                    index = i;
+                }
+            }
+            for (int i = 0; i < stavki.Length; i++)
+            {
+                if (stavki[i].Length == najd)
+                {
+                    Console.WriteLine(stavki[i]);
+                }       
+            }
+        }

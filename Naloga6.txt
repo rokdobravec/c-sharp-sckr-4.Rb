@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp10
+{
+    class Program
+    {
+        enum Dnevi { Pon, Tor, Sre, Čet, Pet, Sob, Ned }
+        static void Main(string[] args)
+        {
+            string[] Tabornik = new string[12];
+            Vnos(Tabornik);
+            Urnik(Tabornik);
+            Console.ReadLine();
+        }
+        static void Vnos(string[] Tabornik)
+        {
+            for (int i = 0; i < Tabornik.Length; i++)
+            {
+                Console.WriteLine("Vnesite imena tabornikov");
+                Tabornik[i] = Console.ReadLine();
+            }
+        }
+        static void Urnik(string[] Tabornik)
+        {
+            Console.Clear();
+            Random rnd = new Random();
+            int a;
+            for (int i = 0; i < 7; i++)
+            {
+                Console.Write((Dnevi)i + ":   ");
+                a = rnd.Next(1, 12);
+                Console.Write(Tabornik[a]);
+                Console.WriteLine();
+            }
+        }
+    }
+}

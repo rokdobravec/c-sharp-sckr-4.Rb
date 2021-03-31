@@ -1,0 +1,27 @@
+static void Main(string[] args)
+        {
+            int [,] tab = new int [6,10];
+            Random r = new Random();
+            int a = 0;
+            for (int i = 0; i < tab.GetLength(0); i++)
+            {
+                for (int k = 0; k < tab.GetLength(1); k++)
+                {
+                    tab[i, k] = r.Next(1, 101);
+                    if (tab[i, k] >= 40 && tab[i, k] <= 60)
+                    {
+                        a++;
+                    }
+                } 
+            }
+            //izpis
+            for (int i = 0; i < tab.GetLength(0); i++)
+            {
+                for (int k = 0; k < tab.GetLength(1); k++)
+                {
+                    Console.Write("{0,3}",tab[i,k]);
+                }
+            } 
+            Console.WriteLine("Števil me 40 in 60 je: {0}",a);
+            
+        }

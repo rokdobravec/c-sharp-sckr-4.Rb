@@ -1,0 +1,42 @@
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        //Imamo skupino 12 tabornikov, ki bodo preživeli teden na taborjenju. 
+        //Pripravi program, ki omogoči vnos njihovih imen. Programu dodaj metodo, 
+        //ki določi urnik dežurstev po dnevih. Vsak dan je dežuren 1 dijak, ki bo izbran naključno. 
+        //Izpiši urnik dežurstev po dnevih, za imena dnevov v tednu uporabi naštevni podatkovni tip.
+        enum meseci
+        {
+            Ponedeljek,
+            Torek,
+            Sreda,
+            Četrtek,
+            Petek,
+            Sobota,
+            Nedelja
+        }
+        static void Main(string[] args)
+        {
+            string[] ime = new string[12];          
+            Console.Write("Vnesi imena tabornikov: ");
+            for(int i = 0; i < ime.Length; i++)
+            {
+                ime[i] = Console.ReadLine();
+            }
+            Dežurstva(ime);
+            Console.ReadKey();
+        }
+        private static void Dežurstva(string[] ime)
+        {
+            Random r = new Random();
+            for(int i = 0; i < 7; i++)
+            {
+                var a = (meseci)i;
+                Console.Write("{0}: {1}\n", a, ime[r.Next(0, 13)]);
+            }
+        }
+    }
+}

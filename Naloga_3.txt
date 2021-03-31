@@ -1,0 +1,46 @@
+static void Main(string[] args)
+        {
+            double [,] stevila = new double [5,10];
+            double[] sum = new double[10];
+            Random r = new Random();
+            double min = -10.00;
+            double max = 10.00;
+            
+
+            for (int i = 0; i < stevila.GetLength(0); i++)
+            {
+                for (int k = 0; k < stevila.GetLength(1); k++)
+                {
+                    stevila[i,k]= Math.Round(r.NextDouble()*(max-min)+min ,2);
+                }
+            }
+
+
+            for (int i = 0; i < stevila.GetLength(0); i++)
+            {
+                for (int k = 0; k < stevila.GetLength(1); k++)
+                {
+                    Console.Write("{0,7}",stevila[i,k]);
+                }
+                Console.WriteLine();
+            }
+
+
+            for(int i = 0; i < stevila.GetLength(0); i++)
+            {
+                for (int k = 0; k < stevila.GetLength(1); k++)
+                {
+                    sum[k] = Math.Round(sum[k] + stevila[i,k],2);
+                }
+                
+            }
+            Console.WriteLine();
+            
+            for (int k = 0; k < sum.Length; k++)
+            {
+                Console.Write("{0,7}", sum[k]);
+            }
+
+                
+            
+        }
