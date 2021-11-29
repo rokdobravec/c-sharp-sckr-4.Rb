@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace branje_iz_zunanje_datoteke
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (File.Exists("C:\\Users\\Uporabnik\\Desktop\\branje.txt"))
+            {
+                StreamReader txt = File.OpenText("C:\\Users\\Uporabnik\\Desktop\\branje.txt");
+                textBox1.Text = txt.ReadToEnd();
+                txt.Close();
+            }
+            else
+            {
+                MessageBox.Show("datoteka ni bila najdena!");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StreamReader cat = File.OpenText("C:\\Users\\Uporabnik\\Desktop\\branje.txt");
+                MessageBox.Show(cat.ReadToEnd());
+                cat.Close();
+            }
+            catch
+            {
+                
+            }
+        }
+    }
+}
