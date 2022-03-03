@@ -26,16 +26,19 @@ namespace WindowsFormsApp3
                 dataGridView1.Refresh();
             }
         }
+        //Ustvearimo Dvodemenzialno tabelo?
         BindingList<Tek100> zbirkatekacev = new BindingList<Tek100>();
         private void Form1_Load(object sender, EventArgs e)
         {
             try 
             { 
+                //preberemo vrstico v datoteki in jo shranimo v vrstica
                 StreamReader sr = File.OpenText("Tekaci.txt");
                 string vrstica = sr.ReadLine();
                 string[] tab;
                 while (vrstica != null)
                 {
+                    //v tabelo spravimo posamezne objekte ki smo jih iz vrstice splitali po ;
                     tab = vrstica.Split(';');
                     //ustvarimo objekt tekača
                     Tek100 tekac = new Tek100(tab[0], tab[1], tab[2],
@@ -55,6 +58,7 @@ namespace WindowsFormsApp3
             }
             catch 
             { 
+            //če iz datoteke ne mora prebrati izpise...
                 MessageBox.Show("napaka z datoteko"); 
             }
 
