@@ -4,8 +4,10 @@ using System.Text;
 
 namespace WindowsFormsApp3
 {
+    //ustverimo class CAtlet
     class CAtlet
     {
+        //Podatki možni v classu
         string ime, priimek, drzava;
         char spol;
         DateTime datum_rojstva;
